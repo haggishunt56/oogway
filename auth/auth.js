@@ -18,12 +18,9 @@ exports.login = function (req, res, next) {
             });
         } else {
             // compare provided password with stored password
-            console.log(password);
-            console.log(user.password);
             bcrypt.compare(password, user.password, function (err, result) {
                 if (result) {
                     let payload = { username: username };
-                    console.log(payload);
                     let accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET);
                     res.cookie("jwt", accessToken);
 
@@ -39,7 +36,7 @@ exports.login = function (req, res, next) {
     });
 }
 
-// this function is used to protect certain routes. If user is not logged in they are redirected to login screen.
+// this function is used to protect certain routes. If user is not logged in they are redirected to login screen. Otherwise, passes to next middleware (usually the controller).
 exports.verify = function (req, res, next) {
     const accessToken = req.cookies ? req.cookies.jwt : null; // if req.cookies doesn't exist, setting req.cookies.jwt causes an error.
     if (!accessToken) {

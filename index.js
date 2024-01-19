@@ -30,8 +30,8 @@ app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
 
 // create routes file
-const applicationRouter = require('./routes/cwRoutes');
-app.use('/', applicationRouter); 
+const applicationRouter = require('./routes/routes');
+app.use('/', applicationRouter);
 
 // create favicon
 app.use('/favicon.ico', express.static('images/favicon.ico'));

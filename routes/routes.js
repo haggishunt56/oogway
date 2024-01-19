@@ -6,8 +6,10 @@ const bodyController = require("../controllers/bodyController");
 const lifestyleController = require("../controllers/lifestyleController");
 const nutritionController = require("../controllers/nutritionController");
 const mindController = require("../controllers/mindController");
+const profileController = require("../controllers/profileController");
 const {login} = require('../auth/auth');
 const {verify} = require('../auth/auth');
+const {getUsername} = require('../auth/user');
 
 // unprotected pages
 router.get("/", loginController.landing_page);
@@ -21,13 +23,21 @@ router.post("/login", login, loginController.log_in_user);
 router.get("/logout", verify, loginController.logout);
 
 // home page
-router.get("/home", verify, controller.home);
+router.get("/home", verify, getUsername, controller.home);
 
 // guides
-router.get("/guides/body", verify, bodyController.demo);
-router.get("/guides/mind", verify, mindController.demo);
-router.get("/guides/lifestyle", verify, lifestyleController.demo);
-router.get("/guides/nutrition", verify, nutritionController.demo);
+router.get("/guides/body", verify, getUsername, bodyController.demo);
+router.get("/guides/mind", verify, getUsername, mindController.demo);
+router.get("/guides/lifestyle", verify, getUsername, lifestyleController.demo);
+router.get("/guides/nutrition", verify, getUsername, nutritionController.demo);
+
+// edit profile
+router.get("/profile", verify, getUsername, profileController.editProfile);
+// todo
+// router.post("/profile", verify, getUsername, profileController.editProfile);
+
+// view progress report
+router.get("/progress", verify, getUsername, controller.progress);
 
 // 500 error handler
 router.use((err, req, res, next) => {

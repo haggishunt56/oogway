@@ -1,8 +1,8 @@
-exports.demo = (req, res) => {
+exports.editProfile = (req, res) => {
     // render the nutrition guide view
-    res.render("guides/nutrition", {
+    res.render("profile", {
         // pass the String as a variable named "title"
-        "title": "Nutrition guide",
+        "title": "Update profile",
         "user": res.locals.username
     });
 }
