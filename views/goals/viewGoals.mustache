@@ -1,0 +1,48 @@
+{{>template/head}}
+
+{{^goals}}
+  <section class="flex-container centre">
+    <p class="wellbeing-body">You don't seem to have any goals :(</p><br>
+  </section>
+  <section class="flex-container centre">
+    <p class="wellbeing-body">Add one now using the button below!</p>
+  </section>
+{{/goals}}
+
+{{#goalsExist}}
+  <table class="goals">
+    <thead>
+      <tr>
+        <th>Goal</th>
+        <th>Date added</th>
+        <th>Date completed</th>
+      </tr>
+    </thead>
+    <tbody>
+{{/goalsExist}}
+
+{{#goals}}
+      <tr>
+        <td><a href="/goals/{{_id}}" class="">{{name}}</a></td>
+        <td>{{dateadded}}</td>
+        <td>{{#dateCompleted}}{{.}}{{/dateCompleted}}{{^dateCompleted}}-{{/dateCompleted}}</td>
+        <!-- todo - display more fields for larger viewports
+        <td>{{target}}</td>
+        <td>{{category}}</td>
+        <td>{{description}}</td>
+        <td>{{completed}}</td> }}-->
+      </tr>
+{{/goals}}
+
+{{#goalsExist}}
+    </tbody>
+  </table>
+{{/goalsExist}}
+
+<form action="/goals/add" method="get">
+    <fieldset class="form-section flex-container centre">
+        <input type="submit" value="Add a goal">
+    </fieldset>
+</form>
+
+{{>template/foot}}

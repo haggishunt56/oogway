@@ -1,0 +1,270 @@
+/*
+    todo - add full compatibility with older browsers.
+    Some compatibility styles added, but more to be explored.
+*/
+
+$mwb-primary: #f9f9f9;
+$mwb-secondary: #dcdcdc;
+$mwb-tertiary: #29C2A3;
+$mwb-text: #090909;
+
+body {
+    background-color: $mwb-primary;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+header {
+    position: relative;
+    background-color: $mwb-secondary;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 600px) { /* rearrange header for mobile screens */
+    header {
+        padding: 0;
+        h1 {
+            font-size: 1.75em;
+        }
+    }
+}
+
+nav {
+    background-color: $mwb-tertiary;
+    width: 90%;
+    height: 4.5rem;
+    padding: 0 5%;
+    a {
+        color: #090909;
+        height: 1.5rem;
+        padding: 1.5rem 1rem; /* tob&bottom left&right */
+        border: 0;
+        text-decoration: none;
+        margin: 0 0.5rem;
+        &:hover {
+            border-bottom: 0.5rem solid $mwb-primary; /* todo - animate? */
+            padding-bottom: 1rem;
+        }
+    }
+    span.flex-item {
+        display: inline;
+        height: 1rem;
+        padding: 1.5rem 0;        
+    }
+}
+
+@media screen and (max-width: 600px) { /* rearrange navbar for mobile screens */
+    nav {
+        width: 100%;
+        height: 3.5rem;
+        padding: 0;
+        a {
+            padding: 1rem 0;
+            &:hover {
+                height: 1rem;
+            }
+        }
+        span.flex-item {
+            margin: 0 0.75em;
+        }
+    }
+}
+
+main {
+    padding: 0 10%;
+}
+
+footer {
+    background-color: $mwb-secondary;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    * {
+        margin: 0.1rem 1rem;
+    }
+}
+
+a {
+    &:link { text-decoration: none; }
+    &:visited { text-decoration: none; }
+    &:hover { text-decoration: none; }
+    &:active { text-decoration: none; }
+    &.display-link { text-decoration: underline; }
+    &.no-styling {
+        color: #090909;
+        text-decoration: none;
+    }
+}
+
+p {
+    margin: 0;
+    &.wellbeing-body {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        color: $mwb-text;
+        &.quote {
+            background-color: $mwb-secondary;
+        }
+    }
+}
+
+#appHeader {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0.1rem;
+    font-weight: Bold;
+}
+
+.thin-border {
+    border: 1px solid $mwb-text;
+    padding: 0.2rem;
+    margin:1rem;
+}
+
+.form-section {
+    margin: 1rem 1rem;
+    display: block;
+    padding: 0.5rem;
+    // box-shadow: rgba(0, 0, 0, 0.35) 0px 4px 12px inset;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-sizing: border-box;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 10px -1px inset;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    &.readonly {
+        background-color: $mwb-secondary;
+    }
+    &[type=submit] {
+        width: 15rem;
+        background-color: #6495ed;
+        color: white;
+        font-weight: bold;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+        &:hover {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 10px -1px inset;
+            background-color: #82b3ff;
+        }
+        &.delete {
+            background-color: #ff0000;
+            &:hover {
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 10px -1px inset;
+                background-color: #ff6e6e;
+            }
+        }
+    }
+}
+
+.navbutton {
+    flex: 1 1 0;
+    width: 15rem;
+    background-color: cornflowerblue;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    &:hover {
+        box-shadow: rgba(50, 50, 93, 0.45) 0px 5px 10px -1px inset;
+        background-color: #82b3ff;
+    }
+}
+
+.flex-item {
+    margin: 1em;
+}
+
+.display-inline-block {
+    display: inline-block; /* todo - centre element on screen */
+}
+
+div, section, fieldset, article, span {
+    border: none;
+    &.flex-container {
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+    &.flex-down {
+        flex-direction: column;
+    }
+    &.centre {
+        justify-content: center;
+        align-items: center;
+    }
+    &.justify {
+        justify-content: space-evenly;
+        text-align: justify;
+        text-justify: inter-word;
+        h2, h3, h4, h5 {
+            justify-content: left;
+            text-align: left;
+            text-justify: unset;
+        }
+    }
+    &.error { // todo - errors and confirmations don't display correctly on smaller viewports
+        border: 2px solid red;
+        background-color: #ff000020;
+        padding: 1em 0 0;
+        margin: 0 20%;
+    }
+    &.confirmation {
+        border: 2px solid #00be00;
+        background-color: #00be0020;
+        padding: 1em 0 0;
+        margin: 0 20%;
+    }
+    &.grid {
+        display: grid;
+        &.trophy-cabinet-1 {
+            margin-top: 2em;
+            grid-template-columns: 49% 49%;
+            column-gap: 2%;
+            grid-column-gap: 2%; /* for compatibility with older browsers */
+            row-gap: 3em;
+            grid-row-gap: 3em; /* for compatibility with older browsers */
+        }
+        &.trophy-cabinet-2 {
+            grid-template-columns: auto;
+            grid-template-rows: auto auto auto;
+            place-self: center;
+            align-self: start;
+        }
+        
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    tr {
+        border-bottom: 1px solid $mwb-text;
+        position: relative;
+        &:nth-child(even) {
+            background-color: $mwb-secondary;
+        }
+    }
+    td, th {
+        padding: 1rem;
+        text-align: center;
+    }
+    a:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+}

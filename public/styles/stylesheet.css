@@ -1,0 +1,308 @@
+/*
+    todo - add full compatibility with older browsers.
+    Some compatibility styles added, but more to be explored.
+*/
+body {
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  position: relative;
+  background-color: #dcdcdc;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  /* rearrange header for mobile screens */
+  header {
+    padding: 0;
+  }
+  header h1 {
+    font-size: 1.75em;
+  }
+}
+
+nav {
+  background-color: #29C2A3;
+  width: 90%;
+  height: 4.5rem;
+  padding: 0 5%;
+}
+
+nav a {
+  color: #090909;
+  height: 1.5rem;
+  padding: 1.5rem 1rem;
+  /* tob&bottom left&right */
+  border: 0;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+nav a:hover {
+  border-bottom: 0.5rem solid #f9f9f9;
+  /* todo - animate? */
+  padding-bottom: 1rem;
+}
+
+nav span.flex-item {
+  display: inline;
+  height: 1rem;
+  padding: 1.5rem 0;
+}
+
+@media screen and (max-width: 600px) {
+  /* rearrange navbar for mobile screens */
+  nav {
+    width: 100%;
+    height: 3.5rem;
+    padding: 0;
+  }
+  nav a {
+    padding: 1rem 0;
+  }
+  nav a:hover {
+    height: 1rem;
+  }
+  nav span.flex-item {
+    margin: 0 0.75em;
+  }
+}
+
+main {
+  padding: 0 10%;
+}
+
+footer {
+  background-color: #dcdcdc;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+footer * {
+  margin: 0.1rem 1rem;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a.display-link {
+  text-decoration: underline;
+}
+
+a.no-styling {
+  color: #090909;
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+p.wellbeing-body {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #090909;
+}
+
+p.wellbeing-body.quote {
+  background-color: #dcdcdc;
+}
+
+#appHeader {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0.1rem;
+  font-weight: Bold;
+}
+
+.thin-border {
+  border: 1px solid #090909;
+  padding: 0.2rem;
+  margin: 1rem;
+}
+
+.form-section {
+  margin: 1rem 1rem;
+  display: block;
+  padding: 0.5rem;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  box-sizing: border-box;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 10px -1px inset;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input.readonly, textarea.readonly, select.readonly {
+  background-color: #dcdcdc;
+}
+
+input[type=submit], textarea[type=submit], select[type=submit] {
+  width: 15rem;
+  background-color: #6495ed;
+  color: white;
+  font-weight: bold;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover, textarea[type=submit]:hover, select[type=submit]:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 10px -1px inset;
+  background-color: #82b3ff;
+}
+
+input[type=submit].delete, textarea[type=submit].delete, select[type=submit].delete {
+  background-color: #ff0000;
+}
+
+input[type=submit].delete:hover, textarea[type=submit].delete:hover, select[type=submit].delete:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 10px -1px inset;
+  background-color: #ff6e6e;
+}
+
+.navbutton {
+  flex: 1 1 0;
+  width: 15rem;
+  background-color: cornflowerblue;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.navbutton:hover {
+  box-shadow: rgba(50, 50, 93, 0.45) 0px 5px 10px -1px inset;
+  background-color: #82b3ff;
+}
+
+.flex-item {
+  margin: 1em;
+}
+
+.display-inline-block {
+  display: inline-block;
+  /* todo - centre element on screen */
+}
+
+div, section, fieldset, article, span {
+  border: none;
+}
+
+div.flex-container, section.flex-container, fieldset.flex-container, article.flex-container, span.flex-container {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+div.flex-down, section.flex-down, fieldset.flex-down, article.flex-down, span.flex-down {
+  flex-direction: column;
+}
+
+div.centre, section.centre, fieldset.centre, article.centre, span.centre {
+  justify-content: center;
+  align-items: center;
+}
+
+div.justify, section.justify, fieldset.justify, article.justify, span.justify {
+  justify-content: space-evenly;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+div.justify h2, div.justify h3, div.justify h4, div.justify h5, section.justify h2, section.justify h3, section.justify h4, section.justify h5, fieldset.justify h2, fieldset.justify h3, fieldset.justify h4, fieldset.justify h5, article.justify h2, article.justify h3, article.justify h4, article.justify h5, span.justify h2, span.justify h3, span.justify h4, span.justify h5 {
+  justify-content: left;
+  text-align: left;
+  text-justify: unset;
+}
+
+div.error, section.error, fieldset.error, article.error, span.error {
+  border: 2px solid red;
+  background-color: #ff000020;
+  padding: 1em 0 0;
+  margin: 0 20%;
+}
+
+div.confirmation, section.confirmation, fieldset.confirmation, article.confirmation, span.confirmation {
+  border: 2px solid #00be00;
+  background-color: #00be0020;
+  padding: 1em 0 0;
+  margin: 0 20%;
+}
+
+div.grid, section.grid, fieldset.grid, article.grid, span.grid {
+  display: grid;
+}
+
+div.grid.trophy-cabinet-1, section.grid.trophy-cabinet-1, fieldset.grid.trophy-cabinet-1, article.grid.trophy-cabinet-1, span.grid.trophy-cabinet-1 {
+  margin-top: 2em;
+  grid-template-columns: 49% 49%;
+  column-gap: 2%;
+  grid-column-gap: 2%;
+  /* for compatibility with older browsers */
+  row-gap: 3em;
+  grid-row-gap: 3em;
+  /* for compatibility with older browsers */
+}
+
+div.grid.trophy-cabinet-2, section.grid.trophy-cabinet-2, fieldset.grid.trophy-cabinet-2, article.grid.trophy-cabinet-2, span.grid.trophy-cabinet-2 {
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  place-self: center;
+  align-self: start;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+table tr {
+  border-bottom: 1px solid #090909;
+  position: relative;
+}
+
+table tr:nth-child(even) {
+  background-color: #dcdcdc;
+}
+
+table td, table th {
+  padding: 1rem;
+  text-align: center;
+}
+
+table a:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
