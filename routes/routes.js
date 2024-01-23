@@ -39,6 +39,12 @@ router.get("/profile", verify, getUsername, profileController.editProfile);
 // view progress report
 router.get("/progress", verify, getUsername, controller.progress);
 
+// view calendar
+router.get("/calendar", verify, getUsername, controller.showCalendar);
+
+// social
+router.get("/friends", verify, getUsername, controller.displayFriends);
+
 // 500 error handler
 router.use((err, req, res, next) => {
     console.error(err);
