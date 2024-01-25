@@ -45,6 +45,10 @@ router.get("/calendar", verify, getUsername, controller.showCalendar);
 // social
 router.get("/friends", verify, getUsername, controller.displayFriends);
 
+// page under construction
+router.get("/todo", verify, getUsername, controller.underConstruction);
+router.get("/friends/todo", verify, getUsername, controller.underConstruction);
+
 // 500 error handler
 router.use((err, req, res, next) => {
     console.error(err);

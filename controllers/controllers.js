@@ -30,3 +30,10 @@ exports.displayFriends = (req, res) => {
         "user": res.locals.username
     });
 }
+
+exports.underConstruction = (req, res) => {
+    res.render("todo", {
+        "title": "Page under construction",
+        "user": res.locals.username
+    })
+}
