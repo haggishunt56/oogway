@@ -293,9 +293,17 @@ table tr:nth-child(even) {
   background-color: #dcdcdc;
 }
 
+table tr.no-bands {
+  background-color: #f9f9f9;
+}
+
 table td, table th {
   padding: 1rem;
   text-align: center;
+}
+
+table td.border, table th.border {
+  border: 1px solid black;
 }
 
 table a:before {
