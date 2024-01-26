@@ -50,7 +50,7 @@ router.get("/todo", verify, getUsername, controller.underConstruction);
 router.get("/friends/todo", verify, getUsername, controller.underConstruction);
 
 // 500 error handler
-router.use((err, req, res, next) => {
+router.use((err, req, res) => {
     console.error(err);
     res.status(500).render("500");
 });
