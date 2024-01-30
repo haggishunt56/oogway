@@ -1,7 +1,7 @@
 const nedb = require("nedb");
 const path = require('path');
 
-class GuidesDAO {
+class GuideDAO {
     constructor() {
         try {
             this.db = new nedb({filename: path.join(__dirname, 'guides.db'), autoload:true});
@@ -41,5 +41,5 @@ class GuidesDAO {
     }
 }
 
-const dao = new GuidesDAO();
+const dao = new GuideDAO();
 module.exports = dao;
