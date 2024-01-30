@@ -7,7 +7,7 @@ exports.landing_page = (req, res) => {
 }
 
 exports.register_page = (req, res) => {
-    res.render('register', {
+    res.render('register_login/register', {
         'title': 'Register account'
     });
 }
@@ -44,7 +44,7 @@ exports.register_new_user = (req, res) => {
     // todo - password validation (8 chars min, 1 LC letter, 1 UC letter & 1 number)
     // todo email address validation
 
-    userDao.lookup(username, function(err, u) {
+    userDao.lookup(username, (err, u) => {
         // if user exists, display error
         if (u) {
             res.status(401).render("register_login/register", {
