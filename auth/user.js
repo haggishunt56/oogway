@@ -1,4 +1,8 @@
-exports.getUsername = function (req, res, next) {
+/*
+* Middleware to get the logged-in user from the session cookie and add to local variables.
+* Allows the username to be passed to mustache for inclusion in pages.
+*/
+exports.getUsername = (req, res, next) => {
     const jwt_decode = require("jwt-decode");
     const token = req.cookies.jwt;
     const decoded_token = jwt_decode(

@@ -26,6 +26,7 @@ router.get("/logout", verify, loginController.logout);
 router.get("/home", verify, getUsername, controller.home);
 
 // guides
+router.get("/guides/populate", verify, getUsername, mindController.populateDB);
 router.get("/guides/body", verify, getUsername, bodyController.demo);
 router.get("/guides/mind", verify, getUsername, mindController.demo);
 router.get("/guides/lifestyle", verify, getUsername, lifestyleController.demo);
@@ -50,7 +51,7 @@ router.get("/todo", verify, getUsername, controller.underConstruction);
 router.get("/friends/todo", verify, getUsername, controller.underConstruction);
 
 // 500 error handler
-router.use((err, req, res, next) => {
+router.use((err, req, res) => {
     console.error(err);
     res.status(500).render("500");
 });

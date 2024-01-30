@@ -12,14 +12,14 @@ class UserDAO {
         }
     }
     create(username, email, password) {
-        const that = this;
+        const userDAO = this;
         bcrypt.hash(password, SALT_ROUNDS).then(function(hash) {
             var entry = {
                 user: username,
                 email: email,
                 password: hash,
             };
-            that.db.insert(entry, function (err) {
+            userDAO.db.insert(entry, function (err) {
                 if (err) {
                     console.log("Can't insert user: ", username);
                     console.log(err);
@@ -27,6 +27,7 @@ class UserDAO {
             });
         });
     }
+
     lookup(user, cb) {
         this.db.find({'user': user}, function (err, entries) {
             if (err) {
@@ -42,4 +43,4 @@ class UserDAO {
 }
 
 const dao = new UserDAO();
-module.exports = dao; 
+module.exports = dao;

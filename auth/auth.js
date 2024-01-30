@@ -7,7 +7,7 @@ exports.login = function (req, res, next) {
     let username = req.body.username;
     let password = req.body.password;
 
-    userModel.lookup(username, function (err, user) {
+    userModel.lookup(username, (err, user) => {
         if (err) {
             console.log("error looking up user\n", err);
             return res.status(500).render("500");
@@ -46,8 +46,8 @@ exports.verify = function (req, res, next) {
         const payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
         next();
     } catch(err) {
-        // if an error occurred, return request unauthorized error
-        // also clear cookie and demand login again, to be safe.
+        // If an error occurs, return unauthorized status,
+        // clear session cookie and require login again.
         res.clearCookie("jwt").status(401).render("login", {
             err: "Unauthorised action performed. Please log in again."
         });
