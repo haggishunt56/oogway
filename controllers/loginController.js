@@ -41,8 +41,31 @@ exports.register_new_user = (req, res) => {
         return;
     }
 
-    // todo - password validation (8 chars min, 1 LC letter, 1 UC letter & 1 number)
-    // todo email address validation
+    // password validation - minimum 8 characters, at least 1 lowercase letter, 1 uppercase and 1 number
+    const passwordRequirements=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/
+    console.log(password)
+    console.log(passwordRequirements.test(password))
+    if (!passwordRequirements.test(password)) {
+        res.status(401).render("register_login/register", {
+            title: 'Register account',
+            err: "Your password must contain at last one lowercase letter, one uppercase letter, and a number, and must be at least 8 characters long.",
+            username: username,
+            email: email
+        });
+        return;
+    }
+
+    // email address validation - must be a valid email address e.g. addressee@domain.com
+    const emailRequirements=/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
+    if (!emailRequirements.test(email)) {
+        res.status(401).render("register_login/register", {
+            title: 'Register account',
+            err: "Enter a valid email address",
+            username: username,
+            email: email
+        });
+        return;
+    }
 
     userDao.lookup(username, (err, u) => {
         // if user exists, display error
