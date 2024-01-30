@@ -26,8 +26,8 @@ router.get("/logout", verify, loginController.logout);
 router.get("/home", verify, getUsername, controller.home);
 
 // guides
+router.get("/guides/populate", verify, getUsername, mindController.populateDB);
 router.get("/guides/body", verify, getUsername, bodyController.demo);
-router.get("/guides/populate", mindController.populateDB);
 router.get("/guides/mind", verify, getUsername, mindController.demo);
 router.get("/guides/lifestyle", verify, getUsername, lifestyleController.demo);
 router.get("/guides/nutrition", verify, getUsername, nutritionController.demo);

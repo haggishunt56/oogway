@@ -3,7 +3,6 @@ const guideDAO = require('../models/guides.js');
 exports.demo = (req, res) => {
     // render the mind(fulness) guide view
     guideDAO.getGuidesByType("mind", (err, guides) => {
-        console.log(guides)
         if (err) {
             res.status(500).render("500");
         } else {
@@ -85,4 +84,8 @@ exports.populateDB = (req, res) => {
             "This, my dear reader, is a choice example of the latter example of hyperbole mentioned above. You know, the kind that makes you want to wash your eyes with broken glass."
         ]
     );
+    res.render("home", {
+        "title": "Home",
+        "user": res.locals.username
+    });
 }
