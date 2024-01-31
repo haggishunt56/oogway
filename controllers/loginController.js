@@ -15,22 +15,24 @@ exports.register_page = (req, res) => {
 exports.register_new_user = (req, res) => {
     const username = req.body.username;
     const email = req.body.email;
+    const dateOfBirth = req.body.dob;
     const password = req.body.password;
     const passwordConf = req.body["password-confirm"];
 
-    // if any field is not supplied, display page again with an error.
-    // username and email fields pre-populated. email address must be re-entered.
+    // field validation - mandatory fields
+    // Username and email fields pre-populated. Password must be re-entered.
     if (!username || !email || !password || !passwordConf) {
         res.status(401).render("register_login/register", {
             title: 'Register account',
             err: "Please provide all required fields.",
             username: username,
+            dob: dateOfBirth,
             email: email
         });
         return;
     }
 
-    // if passwords do not match, display page again with an error
+    // password validation - password and password confirmation must match
     if (password !== passwordConf) {
         res.status(401).render("register_login/register", {
             title: 'Register account',
@@ -43,8 +45,6 @@ exports.register_new_user = (req, res) => {
 
     // password validation - minimum 8 characters, at least 1 lowercase letter, 1 uppercase and 1 number
     const passwordRequirements=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/
-    console.log(password)
-    console.log(passwordRequirements.test(password))
     if (!passwordRequirements.test(password)) {
         res.status(401).render("register_login/register", {
             title: 'Register account',
@@ -80,7 +80,7 @@ exports.register_new_user = (req, res) => {
         }
 
         // once all validation passed, create user and display confirmation on login page
-        userDao.create(username, email, password);
+        userDao.create(username, email, dateOfBirth, password);
         res.status(200).render("register_login/login", {
             confirmation: "User '" + username + "' created. Please log in using the supplied username and password:"
         });

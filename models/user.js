@@ -11,12 +11,13 @@ class UserDAO {
             console.log(err)
         }
     }
-    create(username, email, password) {
+    create(username, email, dateOfBirth, password) {
         const userDAO = this;
         bcrypt.hash(password, SALT_ROUNDS).then(function(hash) {
             var entry = {
                 user: username,
                 email: email,
+                dob: dateOfBirth,
                 password: hash,
             };
             userDAO.db.insert(entry, function (err) {
