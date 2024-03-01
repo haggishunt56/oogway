@@ -6,7 +6,7 @@ class GuideDAO {
         try {
             this.db = new nedb({filename: path.join(__dirname, 'guides.db'), autoload:true});
         } catch(err) {
-            console.log(err)
+            console.log("Error creating guides database")
         }
     }
 
@@ -22,7 +22,6 @@ class GuideDAO {
         guideDAO.db.insert(entry, function (err) {
             if (err) {
                 console.log("Error: Cannot create guide: ", title);
-                console.log(err);
             }
         });
     };

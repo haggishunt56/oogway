@@ -1,7 +1,7 @@
 {
-  "name": "wad2cw2",
+  "name": "Oogway",
   "version": "1.0.0",
-  "description": "Git repository for Web Application Development 2 coursework submission",
+  "description": "Git repository for Oogway health and fitness prototype web app",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/haggishunt56/wad2cw2.git"
+    "url": "git+https://github.com/haggishunt56/oogway.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/haggishunt56/wad2cw2/issues"
+    "url": "https://github.com/haggishunt56/oogway/issues"
   },
-  "homepage": "https://github.com/haggishunt56/wad2cw2#readme",
+  "homepage": "https://github.com/haggishunt56/oogway#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
