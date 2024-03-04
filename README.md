@@ -8,11 +8,9 @@ To run the application, clone this repository into the desired directory, naviga
 
 1. `npm install` to install dependencies and libraries used by this project.
 
-2. `node index.js` **OR** `nodemon index.js` to run the application
+2. `npm run start` to run the application
 
-`node` will start the application, but if changes are made to the code it will need to be manually stopped and started again to load the changes. `nodemon` will restart the application any time a change is made to a javascript file. It does not reload for changes to mustache files.
-
-n.b. The first time you run the application, you may need to create a .env file. Do so, and enter `ACCESS_TOKEN_SECRET="[any_random_string]"`
+n.b. The first time you run the application, you *may* need to create a .env file. Do so, and enter `ACCESS_TOKEN_SECRET="[any_random_string]"`
 
 ### Features
 
@@ -50,3 +48,12 @@ The application has been tested on different viewport sizes and is suitable for 
 3. Some basic input field validation is applied server-side. Mostly this is just checking if a required field is blank and returning an error to the user if it is. More validation is required though, such as checking that dates are provided in date fields and email addresses are in the correct format, e.g. john@example.com
 4. Browser compatibility - CSS styles have been tested on Google Chrome and Opera browsers. Additional browsers should be tested such as Edge, Safari, Firefox and Internet Explorer.
 5. Allow login using *either* the email address *or* username. Currently users can only login with the username.
+6. SEO: <link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
+<meta name="description" content="A simple website, built with Glitch. Remix it to get your own."/>
+<meta name="robots" content="index,follow" />
+<meta property="og:title" content="Hello World!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glitch-hello-website.glitch.me/" />
+<meta property="og:description" content="A simple website, built with Glitch. Remix it to get your own."/>
+<meta property="og:image" content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"/>
+<meta name="twitter:card" content="summary" />

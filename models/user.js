@@ -8,7 +8,7 @@ class UserDAO {
         try {
             this.db = new nedb({filename: path.join(__dirname, 'users.db'), autoload:true});
         } catch(err) {
-            console.log(err)
+            console.log("Error creating users database")
         }
     }
     create(username, email, dateOfBirth, password) {
@@ -23,7 +23,6 @@ class UserDAO {
             userDAO.db.insert(entry, function (err) {
                 if (err) {
                     console.log("Can't insert user: ", username);
-                    console.log(err);
                 }
             });
         });
