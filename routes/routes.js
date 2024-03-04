@@ -51,7 +51,7 @@ router.get("/todo", verify, getUsername, controller.underConstruction);
 router.get("/friends/todo", verify, getUsername, controller.underConstruction);
 
 // 500 error handler
-router.use((req, res, next, err) => {
+router.use((req, res, next) => {
     console.error("unknown error occurred");
     res.status(500).render("500");
 });
