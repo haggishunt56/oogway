@@ -16,10 +16,10 @@ router.get("/", loginController.landing_page);
 router.get("/about", controller.about);
 
 // log in/register
-router.get("/register_login/register", loginController.register_page);
-router.post("/register_login/register", loginController.register_new_user);
-router.get("/register_login/login", loginController.log_in_page);
-router.post("/register_login/login", login, loginController.log_in_user);
+router.get("/register", loginController.register_page);
+router.post("/register", loginController.register_new_user);
+router.get("/login", loginController.log_in_page);
+router.post("/login", login, loginController.log_in_user);
 router.get("/logout", verify, loginController.logout);
 
 // home page
