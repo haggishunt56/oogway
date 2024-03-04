@@ -52,8 +52,7 @@ router.get("/friends/todo", verify, getUsername, controller.underConstruction);
 
 // 500 error handler
 router.use((req, res, next) => {
-    console.error("unknown error occurred:");
-    console.error(err);
+    console.error("unknown error occurred");
     res.status(500).render("500");
 });
 
