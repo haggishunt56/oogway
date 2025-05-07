@@ -33,9 +33,14 @@ router.get("/guides/lifestyle", verify, getUsername, lifestyleController.demo);
 router.get("/guides/nutrition", verify, getUsername, nutritionController.demo);
 
 // edit profile
-router.get("/profile", verify, getUsername, profileController.editProfile);
-// todo
-// router.post("/profile", verify, getUsername, profileController.editProfile);
+router.get("/profile", verify, getUsername, profileController.editProfilePage);
+
+function notifyDev() {
+    console.log("router.post(\"/profile\",");
+    return;
+}
+
+router.post("/profile", verify, getUsername, profileController.editProfile);
 
 // view progress report
 router.get("/progress", verify, getUsername, controller.progress);

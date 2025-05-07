@@ -14,7 +14,7 @@ exports.login = function (req, res, next) {
                 return res.status(500).render("500");
             } else if (!user) {
                 console.log('Incorrect username or password.');
-                return res.status(401).render("login", {
+                return res.status(401).render("register_login/login", {
                     err: "Incorrect username or password. Please try again."
                 });
             } else {
@@ -28,7 +28,7 @@ exports.login = function (req, res, next) {
                         // pass to the callback function
                         next();
                     } else {
-                        return res.status(401).render("login", {
+                        return res.status(401).render("register_login/login", {
                             err: "Incorrect username or password. Please try again."
                         });
                     }
@@ -52,7 +52,7 @@ exports.verify = function (req, res, next) {
     } catch(err) {
         // If an error occurs, return unauthorized status,
         // clear session cookie and require login again.
-        res.clearCookie("jwt").status(401).render("login", {
+        res.clearCookie("jwt").status(401).render("register_login/login", {
             err: "Unauthorised action performed. Please log in again."
         });
     }

@@ -10,7 +10,9 @@ To run the application, clone this repository into the desired directory, naviga
 
 2. `npm run start` to run the application
 
-n.b. The first time you run the application, you *may* need to create a .env file. Do so, and enter `ACCESS_TOKEN_SECRET="[any_random_string]"`
+Note you must be on Node version 21 to run this application.
+
+The first time you run the application, you *may* need to create a .env file. Do so, and enter `ACCESS_TOKEN_SECRET="[any_random_string]"`
 
 ### Features
 
